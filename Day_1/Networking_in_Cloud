@@ -65,7 +65,8 @@
     - Networking in the cloud is a critical aspect of building and managing cloud-based applications and services.
     - Understanding key concepts such as VPCs, subnets, route tables, security groups, and load balancers is essential for designing secure and efficient cloud networks.
     - By following best practices and leveraging cloud provider services, you can create robust networking architectures that meet your application's needs.
-- Further Reading
+
+-Further Reading
     - "Amazon VPC User Guide" - https://docs.aws.amazon.com/vpc/latest/userguide/
     - "Azure Virtual Network Documentation" - https://docs.microsoft.com/en-us/azure/virtual-network/
     - "Google Cloud VPC Documentation" - https://cloud.google.com/vpc/docs
