@@ -1,0 +1,194 @@
+
+- OSI Layers 
+   - Physical – Cables, bits
+   - Data Link – MAC address, switches
+   - Network – IP, routing
+   - Transport – TCP / UDP
+   - Session – Connection management
+   - Presentation – Encryption, encoding
+   - Application – HTTP, FTP, DNS
+
+- TCP/IP Model
+    - Link – Physical + Data Link
+    - Internet – Network
+    - Transport – Transport
+    - Application – Session + Presentation + Application
+
+- Difference between OIS and TCP/IP
+    - OSI is a 7-layer model, TCP/IP is a 4-layer model.
+    - OSI is theoretical, TCP/IP is practical and widely used.
+    - OSI separates session and presentation layers, TCP/IP combines them into the application layer.
+
+- Common Protocols
+    - HTTP / HTTPS – Web traffic
+    - FTP / SFTP – File transfer
+    - DNS – Domain name resolution
+    - DHCP – Dynamic IP assignment
+    - SMTP / IMAP / POP3 – Email protocols
+    - SSH – Secure remote access
+    - Telnet – Unsecure remote access
+    - SNMP – Network management
+
+- IP Addressing
+    - ipv4 
+        -   Network Classes
+        - Class A
+        - Class B
+        - Class C
+        - Class D (Multicast)
+        - Class E (Experimental)
+- IPV4 vs IPV6
+    - IPv4: 32-bit, dotted decimal, limited address space
+    - IPv6: 128-bit, hexadecimal, vast address space, improved routing and security
+    - subnetting in ipv6
+        - IPv6 subnetting uses a similar concept to IPv4 but with a much larger address space. It typically uses a /64 prefix for most subnets, allowing for 2^64 addresses per subnet.
+        - Example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334/64
+            - Here, the first 64 bits (2001:0db8:85a3:0000) represent the network portion, and the last 64 bits (0000:8a2e:0370:7334) represent the host portion.
+            - Total ips in a /64 subnet: 18,446,744,073,709,551,616 (2^64)
+- Common Ports
+    - 20 / 21 – FTP
+    - 22 – SSH
+    - 23 – Telnet
+    - 25 – SMTP
+    - 53 – DNS
+    - 67 / 68 – DHCP
+    - 80 – HTTP
+    - 110 – POP3
+    - 143 – IMAP
+    - 443 – HTTPS
+    - 3306 – MySQL
+    - why ports are required?
+        Ports are required to differentiate between multiple services or applications running on a single device. They allow the operating system to direct incoming and outgoing network traffic to the correct application based on the port number.
+    - Uses of ports
+        - Service Identification: Differentiate between services (e.g., web server vs. email server).
+        - Traffic Management: Direct traffic to the appropriate application.
+        - Security: Control access to specific services through firewall rules.
+
+- What is DNS and why it is required?
+    DNS (Domain Name System) is a distributed system that translates human-readable domain names into IP addresses. It is required because it allows users to access websites and services using easy-to-remember names instead of numerical IP addresses.
+
+    DNS is the phonebook of the internet.
+    Uses of DNS
+        - User-Friendly Navigation: Allows users to access websites using domain names instead of IP addresses.
+        - Load Balancing: Distributes traffic across multiple servers for better performance and reliability.
+        - Email Routing: Directs email to the correct mail servers based on domain names.
+    Example:
+    - User types "www.google.com" into a browser.
+        www.google.com  →  142.250.190.4
+    Computers communicate using IP addresses, but humans remember names. DNS bridges that gap.
+
+- Network Segmentation
+    - what do you mean by Network Segmentation?
+     Network segmentation is the practice of dividing a network into isolated segments and controlling traffic between them to improve security and reduce blast radius.
+     Example: 
+        User → App → DB → Admin tools (all reachable) without segmentaion 
+        With segmentation:
+        User → App → DB 
+                 ↓
+             Admin tools (restricted)
+        Without segmentation, if the App server is compromised, the attacker can easily reach the DB and Admin tools. With segmentation, access to Admin tools is restricted, limiting potential damage.
+-  Subnetting
+    - what is subnetting?
+        Subnetting is the process of dividing a larger network into smaller, more manageable sub-networks (subnets). It improves network performance, enhances security, and optimizes IP address allocation.
+        
+    - why is subnetting important? or uses of subnetting?
+        - Improved security: Limits broadcast traffic and isolates segments.
+        - Reduced congestion: Decreases network traffic within each subnet.
+        - Efficient IP management: Optimizes the use of available IP addresses.
+        
+    - key concepts in subnetting
+   CIDR notation        
+            CIDR (Classless Inter-Domain Routing) notation is a method for allocating IP addresses and routing that allows for more flexible subnetting than traditional classful addressing. It uses a suffix to indicate the number of bits used for the network portion of the address.
+                
+   Subnet masks
+            A subnet mask is a 32-bit number that divides an IP address into network and host portions. It helps determine which part of the IP address refers to the network and which part refers to the device (host) within that network.
+           
+
+   Network vs Host portions
+            - Network Portion: Identifies the specific network segment.
+            - Host Portion: Identifies individual devices within that network.
+            
+            Example:
+            192.168.1.0/24
+            - Here last /24 indicates that the first 24 bits are used for the network portion, leaving 8 bits for host addresses within that subnet.
+            - 192.168.1.0 is the network address.
+            - 0 to 255 are the possible host addresses in this subnet (256 total addresses, but 254 usable for hosts since .0 is the network address and .255 is the broadcast address). 
+- Routing
+    - What is Routing?
+        Routing is the process of selecting paths in a network along which to send data packets. It involves determining the best path for data to travel from the source to the destination across interconnected networks.
+    - Why Routing is required?
+        Routing is required to ensure that data packets reach their intended destinations efficiently and accurately. It enables communication between devices on different networks and helps manage network traffic.
+    - Types of routing:
+        - Static Routing: Manually configured routes that do not change unless updated by an administrator.
+        - Dynamic Routing: Automatically adjusts routes based on current network conditions using protocols like OSPF, EIGRP, and BGP.
+- Firewalls
+    - What is a Firewall?
+        A firewall is a network security device or software that monitors and controls incoming and outgoing network traffic based on predetermined security rules. It acts as a barrier between a trusted internal network and untrusted external networks, such as the internet.
+    - Why are Firewalls required?
+        Firewalls are required to protect networks and devices from unauthorized access, cyber threats, and malicious activities. They help enforce security policies, prevent data breaches, and ensure safe communication between networks.
+    - Types of Firewalls:
+        - Host Firewall: Installed on individual devices to protect them from unauthorized access.
+        - Network Firewall: Deployed at the network perimeter to protect the entire network.
+        - Packet-Filtering Firewall: Inspects packets and allows or blocks them based on source/destination IP addresses, ports, and protocols.
+        - Stateful Inspection Firewall: Monitors active connections and makes decisions based on the state of the connection.
+        - Proxy Firewall: Acts as an intermediary between users and the internet, filtering requests and responses.
+        - Next-Generation Firewall (NGFW): Combines traditional firewall capabilities with advanced features like intrusion prevention, application awareness, and deep packet inspection.
+- NAT vs PAT
+    what is Nat?
+        Nat (Network Address Translation) is a method used in networking to modify IP address information in packet headers while they are in transit across a traffic routing device. It enables multiple devices on a local network to share a single public IP address for accessing external networks, such as the internet.
+    what is Pat?
+        Pat (Port Address Translation), also known as NAT overload, is a type of Network Address Translation that allows multiple devices on a local network to share a single public IP address by assigning different port numbers to each device's traffic. This enables efficient use of IP addresses and allows multiple connections to be established simultaneously.
+     Why NAT and PAT required?
+        - IP Address Conservation: Both NAT and PAT help conserve public IP addresses by allowing multiple devices to share a single public IP.
+        - Security: They provide a layer of security by hiding internal IP addresses from external networks.
+        - Network Flexibility: They enable easier network management and configuration, especially in environments with limited IP address availability.
+- VPNs
+    - VPN (Virtual Private Network): A secure connection over the internet that encrypts data and masks the user's IP address, providing privacy and security when accessing remote networks.
+    - Types of VPNs:
+        - Remote Access VPN: Allows individual users to connect to a private network from a remote location.
+        - Site-to-Site VPN: Connects entire networks to each other, typically used between branch offices and headquarters.
+
+- IDS vs IPS
+    - IDS (Intrusion Detection System): Monitors network traffic for suspicious activity and alerts administrators when potential threats are detected. It is a passive system that does not take action to block threats.
+    - IPS (Intrusion Prevention System): Similar to IDS, but it actively monitors and takes action to block or prevent detected threats in real-time. It can drop malicious packets, reset connections, or reconfigure firewalls to mitigate threats.
+- Load Balancers
+    - A load balancer is a device or software that distributes incoming network traffic across multiple servers to ensure no single server becomes overwhelmed. This helps improve application availability, reliability, and performance.
+    - Types of Load Balancers:
+        - Hardware Load Balancer: A physical device dedicated to load balancing tasks.
+        - Software Load Balancer: A software application that performs load balancing functions.
+        - DNS Load Balancing: Distributes traffic by resolving domain names to different IP addresses based on various algorithms.
+    - Load Balancing Algorithms:
+        - Round Robin: Distributes requests sequentially across servers.
+        - Least Connections: Directs traffic to the server with the fewest active connections.
+        - IP Hash: Uses the client's IP address to determine which server will handle the request.
+- Proxies
+    - A proxy server acts as an intermediary between a client and the internet. It forwards client requests to the appropriate server and returns the server's response to the client. Proxies can provide anonymity, content filtering, and caching.
+    - Types of Proxies:
+        - Forward Proxy: Sits between clients and the internet, used to filter requests and provide anonymity.
+        - Reverse Proxy: Sits between the internet and web servers, used to distribute traffic, enhance security, and cache content.
+        - Transparent Proxy: Intercepts requests without modifying them, often used for caching and content filtering.
+- Wireless Networking
+    - Wi-Fi Standards:
+        - 802.11a: Operates at 5 GHz, up to 54 Mbps
+        - 802.11b: Operates at 2.4 GHz, up to 11 Mbps
+        - 802.11g: Operates at 2.4 GHz, up to 54 Mbps
+        - 802.11n: Operates at both 2.4 GHz and 5 GHz, up to 600 Mbps
+        - 802.11ac: Operates at 5 GHz, up to several Gbps
+        - 802.11ax (Wi-Fi 6): Operates at both 2.4 GHz and 5 GHz, improved efficiency and speed
+    - Security Protocols:
+        - WEP (Wired Equivalent Privacy): An outdated and insecure protocol.
+        - WPA (Wi-Fi Protected Access): Improved security over WEP.
+        - WPA2: Stronger security with AES encryption.
+        - WPA3: The latest standard with enhanced security features.
+- QoS
+    - Quality of Service (QoS) is a set of techniques used to manage network resources and ensure the performance of critical applications by prioritizing certain types of traffic.
+    - QoS Techniques:
+        - Traffic Shaping: Controls the flow of data to ensure a smooth and consistent transmission rate.
+        - Prioritization: Assigns different priority levels to different types of traffic (e.g., voice, video, data).
+        - Bandwidth Reservation: Allocates a specific amount of bandwidth for high-priority applications.
+        - Congestion Management: Implements strategies to handle network congestion and maintain performance.
+
+   
+
+
+
